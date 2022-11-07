@@ -1,0 +1,74 @@
+<%- include('partials/header') %>
+    <main>
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">My Library</h1>
+                    <p class="lead text-muted">Every book I am interested in are found here. Click on a field, click on
+                        a book and enjoy your reading.</p>
+                    <p>
+                        <a class="btn btn-primary my-2 add-field-btn">Add field with color</a>
+                        <a class="btn btn-secondary my-2 add-book-btn">Add a new book</a>
+                    </p>
+                    <p>
+                        <% foundFields.forEach(field => { %>
+                            <a href="/<%= _.lowerCase(field.fieldTitle) %>" class="btn my-2 custom-field-btn" style="background-color:<%= field.fieldColor %>; border-color:<%= field.fieldColor %>;"><%= field.fieldTitle %> </a>
+                        <% }) %>
+                    </p>
+                    <form action="/" method="post" class="field-form">
+                            <input type="text" class="field-input" name="fieldTitle">
+                            <input type="color" class="btn" name="fieldColor">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <div class="modal d-block bg-secondary py-5 add-book-form" tabindex="-1" role="dialog" id="modalSignin">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content rounded-5 shadow">
+                <div class="modal-header p-5 pb-4 border-bottom-0">
+                  <!-- <h5 class="modal-title">Modal title</h5> -->
+                  <h2 class="fw-bold mb-0">Add a new book</h2>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body p-5 pt-0">
+                  <form class="">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Book Title</span>
+                        <input type="text" class="form-control" placeholder="Engineering Mathematics - John Bird" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="mb-3">
+                        <p class="fw-bold">Add book image</p>
+                        <input type="file" class="form-control" aria-label="Large file input example">
+                    </div>
+                    <div class="mb-3">
+                        <p class="fw-bold">Add book URL</p>
+                        <input type="text" class="form-control" placeholder="https://wherebookis.com/book" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="mb-3">
+                        <p class="fw-bold">Select Book Field</p>
+                        <select class="form-select mb-3" aria-label="example">
+                          <option selected="">Select the book field</option>
+                          <option value="">Create field</option>
+                          <option value="1">One</option>
+                        </select>
+                      </div>
+                    <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Add Book</button>
+                    <small class="text-muted">By clicking Add book, you agree to your book being in our database.</small>
+                    <hr class="my-4">
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="album py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center">YOU HAVEN'T <%= selectCreate %> A FIELD!</h2>
+            </div>
+          </div>
+
+    </main>
+    <%- include('partials/footer') %>

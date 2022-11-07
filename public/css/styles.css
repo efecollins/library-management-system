@@ -1,0 +1,45 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+.field-input {
+    padding: 1% 2%;
+}
+
+.field-form{
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity linear 0.3s;
+}
+
+.field-form-vis {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity linear 0.3s;
+}
+
+.custom-field-btn {
+    color: #fff;
+    transition: transform linear 0.3s;
+}
+
+.custom-field-btn:hover {
+    color: #fff;
+    transform: scale(1.15);
+}
+
+.add-book-form {
+    background-color: rgba(var(--bs-secondary-rgb),0.5)!important;
+    backdrop-filter: blur(2px);
+    visibility: hidden;
+}
