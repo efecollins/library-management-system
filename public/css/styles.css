@@ -43,3 +43,12 @@
     backdrop-filter: blur(2px);
     visibility: hidden;
 }
+
+.modal-body .small-p {
+    margin: 0;
+    font-size: small;
+}
+
+select {
+    cursor: pointer;
+}

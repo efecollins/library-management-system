@@ -34,25 +34,28 @@
                 </div>
 
                 <div class="modal-body p-5 pt-0">
-                  <form class="">
+                  <form class="" method="post" action="/addBook">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">Book Title</span>
-                        <input type="text" class="form-control" placeholder="Engineering Mathematics - John Bird" aria-label="Username" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" name="bookTitle" placeholder="Engineering Mathematics - John Bird" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
                     <div class="mb-3">
                         <p class="fw-bold">Add book image</p>
-                        <input type="file" class="form-control" aria-label="Large file input example">
+                        <input type="file" class="form-control" name="bookImage" aria-label="Large file input example">
                     </div>
                     <div class="mb-3">
                         <p class="fw-bold">Add book URL</p>
-                        <input type="text" class="form-control" placeholder="https://wherebookis.com/book" aria-label="Username" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" name="bookURL" placeholder="https://wherebookis.com/book" aria-label="Username" aria-describedby="basic-addon1">
                     </div>
                     <div class="mb-3">
                         <p class="fw-bold">Select Book Field</p>
+                        <p class="small-p mb-1">Create book field if not listed below.</p>
                         <select class="form-select mb-3" aria-label="example">
-                          <option selected="">Select the book field</option>
-                          <option value="">Create field</option>
-                          <option value="1">One</option>
+                          <option selected="true">Select the book field</option>
+                          <% foundFields.forEach(field => { %>
+                            <% const fieldTitle = field.fieldTitle %>
+                            <option value="<%= fieldTitle %>"><%= fieldTitle %></option>
+                        <% }) %>
                         </select>
                       </div>
                     <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Add Book</button>

@@ -20,7 +20,8 @@ mongoose.connect("mongodb://localhost:27017/libraryDB", { useNewUrlParser: true,
 const bookSchema = {
     bookImage: String,
     bookTitle: String,
-    bookURL: String
+    bookURL: String,
+    bookField: String
 }
 
 const Books = mongoose.model('Book', bookSchema);
@@ -61,7 +62,21 @@ app.post('/', (req, res) => {
 })
 
 app.get('/:fieldTitle', (req, res) => {
-    console.log(req.params.fieldTitle);
+    const fieldTitle = _.startCase(req.params.fieldTitle);
+    res.render('book')
+})
+
+app.post('/addBook', (req, res) => {
+    const fieldTitle = req.body.fieldTitle
+    const newBook = new Books({
+    bookImage: req.body.bookImage,
+    bookTitle: req.body.bookTitle,
+    bookURL: req.body.bookURL,
+    bookField: fieldTitle
+    })
+    newBook.save();
+    fieldTitle = _.lowerCase(fieldTitle);
+    res.redirect('/' + fieldTitle);
 })
 
 app.listen(3000, () => {

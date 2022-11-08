@@ -15,3 +15,7 @@ addBookBtn.addEventListener('click', () => {
 closeBookForm.addEventListener('click', () => {
     addBookForm.style.visibility = 'hidden';
 })
+
+const displayFieldForm = () => {
+    addBookForm.style.visibility = 'hidden';
+}
