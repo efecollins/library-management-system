@@ -49,14 +49,10 @@
                     </div>
                     <div class="mb-3">
                         <p class="fw-bold">Select Book Field</p>
-                        <p class="small-p mb-1">Create book field if not listed below.</p>
-                        <select class="form-select mb-3" aria-label="example">
-                          <option selected="true">Select the book field</option>
                           <% foundFields.forEach(field => { %>
                             <% const fieldTitle = field.fieldTitle %>
-                            <option value="<%= fieldTitle %>"><%= fieldTitle %></option>
+                            <input name="fieldTitle" type="radio" value="<%= fieldTitle %>"> <%= fieldTitle %>
                         <% }) %>
-                        </select>
                       </div>
                     <button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary" type="submit">Add Book</button>
                     <small class="text-muted">By clicking Add book, you agree to your book being in our database.</small>

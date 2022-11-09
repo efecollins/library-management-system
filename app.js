@@ -67,7 +67,7 @@ app.get('/:fieldTitle', (req, res) => {
 })
 
 app.post('/addBook', (req, res) => {
-    const fieldTitle = req.body.fieldTitle
+    let fieldTitle = req.body.fieldTitle
     const newBook = new Books({
     bookImage: req.body.bookImage,
     bookTitle: req.body.bookTitle,
