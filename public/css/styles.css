@@ -43,3 +43,8 @@
     backdrop-filter: blur(2px);
     visibility: hidden;
 }
+
+.book-row-field {
+    margin-right: auto !important;
+    margin-left: auto !important;
+}

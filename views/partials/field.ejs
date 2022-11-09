@@ -1,0 +1,8 @@
+<p>
+    <% foundFields.forEach(field=> { %>
+      <a href="/<%= _.lowerCase(field.fieldTitle) %>" class="btn my-2 custom-field-btn"
+        style="background-color:<%= field.fieldColor %>; border-color:<%= field.fieldColor %>;">
+        <%= field.fieldTitle %>
+      </a>
+      <% }) %>
+  </p>
