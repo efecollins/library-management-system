@@ -63,16 +63,21 @@ app.post('/', (req, res) => {
 
 app.get('/:fieldTitle', (req, res) => {
     // const fieldTitle = _.startCase(req.params.fieldTitle);
-    // Books.find({}, (err, foundBooks) => {
-    //     if (foundBooks.length === 0) {
-    //         res.redirect('/')
-    //     } else {
-    //         res.render('book', { foundBooks: foundBooks })
-    //     }
-    // })
+
     Fields.find({}, (err, foundFields) => {
-        res.render('book', { foundFields: foundFields, _:_ })
+        findBooks();
+        res.render('book', { foundFields: foundFields, _: _ })
     })
+
+    const findBooks = () => {
+        Books.find({}, (err, foundBooks) => {
+            if (foundBooks.length === 0) {
+                res.redirect('/')
+            } else {
+                res.render('book', { foundBooks: foundBooks })
+            }
+        })
+    }
 })
 
 app.post('/addBook', (req, res) => {

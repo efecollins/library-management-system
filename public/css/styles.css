@@ -48,3 +48,7 @@
     margin-right: auto !important;
     margin-left: auto !important;
 }
+
+.card-title {
+    font-weight: bold;
+}
