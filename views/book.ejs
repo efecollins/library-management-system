@@ -11,18 +11,27 @@
         <div class="container">
 
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                <div class="col">
-                    <div class="card shadow-sm">
-                        <img class="card-img-top bd-placeholder-img" width="100%" height="200" src="6637170.jpg" alt="">
+                <% foundFields.forEach(foundField => { %>
+                    <% foundField.fieldBooks.forEach(book => { %>
+                        <% if (book.bookField === fieldTitle) { %>
+                            <div class="col">
+                                <div class="card shadow-sm">
+                                    <img class="card-img-top bd-placeholder-img" width="100%" height="200" src="6637170.jpg"
+                                        alt="">
 
-                        <div class="card-body">
-                            <p class="card-title">Sara Lance History</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Read</button>
+                                    <div class="card-body">
+                                        <p class="card-title">
+                                            <%= book.bookTitle %>
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">Read</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                        <% } %>
+                    <% }) %>
+                <% }) %>
             </div>
         </div>
     </div>

@@ -35,7 +35,6 @@ const librarySchema = {
 const Fields = mongoose.model('Field', librarySchema);
 
 app.get('/', (req, res) => {
-    // fieldColor & fieldTitle set to '' to remove bug
     Fields.find({}, (err, foundFields) => {
         if (foundFields.length === 0) {
             res.render('home', { foundFields: foundFields, selectCreate: 'CREATED', _: _, bookField: 'FIELD' })
@@ -62,22 +61,11 @@ app.post('/', (req, res) => {
 })
 
 app.get('/:fieldTitle', (req, res) => {
-    // const fieldTitle = _.startCase(req.params.fieldTitle);
+    const fieldTitle = _.startCase(req.params.fieldTitle);
 
     Fields.find({}, (err, foundFields) => {
-        findBooks();
-        res.render('book', { foundFields: foundFields, _: _ })
+        res.render('book', { foundFields: foundFields, _: _, fieldTitle: fieldTitle })
     })
-
-    const findBooks = () => {
-        Books.find({}, (err, foundBooks) => {
-            if (foundBooks.length === 0) {
-                res.redirect('/')
-            } else {
-                res.render('book', { foundBooks: foundBooks })
-            }
-        })
-    }
 })
 
 app.post('/addBook', (req, res) => {
@@ -89,8 +77,15 @@ app.post('/addBook', (req, res) => {
         bookField: fieldTitle
     })
     newBook.save();
-    fieldTitle = _.lowerCase(fieldTitle);
-    res.redirect('/' + fieldTitle);
+
+    Fields.updateOne({fieldTitle: fieldTitle}, {$push: {fieldBooks: [newBook]}} , {upsert: true, new: true}, (err) => {
+        if (err) {
+            res.redirect('/')
+        } else {
+            fieldTitle = _.lowerCase(fieldTitle);
+            res.redirect('/' + fieldTitle);
+        }
+    })
 })
 
 app.listen(3000, () => {

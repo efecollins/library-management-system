@@ -50,7 +50,7 @@
                 <p class="fw-bold">Select Book Field</p>
                 <% foundFields.forEach(field=> { %>
                   <% const fieldTitle=field.fieldTitle %>
-                    <input name="fieldTitle" type="radio" value="<%= fieldTitle %>">
+                    <input name="fieldTitle" type="radio" value="<%= fieldTitle %>" required>
                     <%= fieldTitle %>
                       <% }) %>
               </div>
