@@ -52,3 +52,11 @@
 .card-title {
     font-weight: bold;
 }
+
+.book {
+    transition: transform linear 0.3s;
+}
+
+.book:hover {
+    transform: scale(1.1);
+}
