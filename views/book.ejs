@@ -10,30 +10,28 @@
         <div class="container">
 
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                <% foundFields.forEach(foundField => { %>
-                    <% if (foundField.fieldBooks.length === 0) { %>
-                        <h2>YOU HAVEN'T <%= selectCreate %> A <%= bookField %>!</h2>
-                    <% } %>
-                    <% foundField.fieldBooks.forEach(book => { %>
-                        <% if (book.bookField === fieldTitle) { %>
+                <% foundFields.forEach(foundField=> { %>
+                    <% foundField.fieldBooks.forEach(book=> { %>
+                        <% if (book.bookField===fieldTitle) { %>
                             <div class="col book">
                                 <div class="card shadow-sm">
-                                    <img class="card-img-top bd-placeholder-img" width="100%" height="200" src="6637170.jpg"
-                                        alt="">
+                                    <img class="card-img-top bd-placeholder-img" width="100%" height="200"
+                                        src="6637170.jpg" alt="">
 
                                     <div class="card-body">
                                         <p class="card-title">
                                             <%= book.bookTitle %>
                                         </p>
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <a href="<%= book.bookURL %>" target="_blank" class="btn btn-sm btn-outline-secondary">Read</a>
+                                            <a href="<%= book.bookURL %>" target="_blank"
+                                                class="btn btn-sm btn-outline-secondary">Read</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        <% } %>
-                    <% }) %>
-                <% }) %>
+                            <% } %>
+                                <% }) %>
+                                    <% }) %>
             </div>
         </div>
     </div>

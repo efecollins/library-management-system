@@ -78,7 +78,7 @@ app.post('/addBook', (req, res) => {
     })
     newBook.save();
 
-    Fields.updateOne({fieldTitle: fieldTitle}, {$push: {fieldBooks: [newBook]}} , {upsert: true, new: true}, (err) => {
+    Fields.updateOne({ fieldTitle: fieldTitle }, { $push: { fieldBooks: [newBook] } }, { upsert: true, new: true }, (err) => {
         if (err) {
             res.redirect('/')
         } else {
