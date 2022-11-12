@@ -2,20 +2,20 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const _ = require('lodash');
-const repl = require('repl');
+//const repl = require('repl');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-const local = repl.start('$ ');
+//const local = repl.start('$ ');
 
-local.on('exit', () => {
-    console.log('exiting repl')
-    process.exit();
-})
+// local.on('exit', () => {
+//     console.log('exiting repl')
+//     process.exit();
+// })
 
-mongoose.connect("mongodb://localhost:27017/libraryDB", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb+srv://efecollins-admin:admin-efecollins-4311404114@cluster0.unuhgl6.mongodb.net/libraryDB", { useNewUrlParser: true, useUnifiedTopology: true });
 
 const bookSchema = {
     bookImage: String,
@@ -88,6 +88,6 @@ app.post('/addBook', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log('Server is live on port 3000');
 })

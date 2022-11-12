@@ -49,7 +49,7 @@ Server is live on port 3000
 
 - To use MongoDB with Mongoose locally, do this:
 ```
-mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true});
+mongoose.connect("mongodb://localhost:27017/libraryDB", {useNewUrlParser: true});
 ```
 
 ### **Coming Soon** & Challenges
