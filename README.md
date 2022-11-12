@@ -31,12 +31,12 @@ $ git clone https://github.com/efecollins/library-management-system.git
 ```
 $ npm i
 ```
-- Run `nodemon` in your terminal if installed to start the node server and watch for changes in `app.js`
+- Run `nodemon` in your terminal if installed to start the node server and watch for changes in `index.js`
 ```
 $ nodemon
 ```
 
-- Or run `node app.js` to start the server if `nodemon` is not installed
+- Or run `node index.js` to start the server if `nodemon` is not installed
 ```
 $ node app.js
 ```

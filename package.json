@@ -2,11 +2,11 @@
   "name": "library-management-system",
   "version": "1.0.0",
   "description": "Every book belonging to Efosa Collins EVBOWE is organized by fields and gives every visitor access",
-  "main": "app.js",
+  "main": "index.js",
   "private": "true",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node index.js"
   },
   "author": "Efosa Collins EVBOWE <efejamb@gmail.com> (https://efecollins.github.io/new-pweb/dist)",
   "contributors": ["Efosa Collins EVBOWE <efejamb@gmail.com> (https://efecollins.github.io/new-pweb/dist)"],
