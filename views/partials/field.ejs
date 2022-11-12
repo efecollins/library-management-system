@@ -1,4 +1,4 @@
-<p>
+<!-- <p>
   <% foundFields.forEach(field=> { %>
     <div class="btn-group custom-field-btn">
       <a class="btn my-2 fff" href="/<%= _.lowerCase(field.fieldTitle) %>"
@@ -11,8 +11,19 @@
         <span class="visually-hidden">Toggle Dropdown</span>
       </button>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Delete</a></li>
+        <form action="/<%= field.fieldTitle %>" method="post">
+          <li><button class="dropdown-item">Delete</button></li>
+        </form>
       </ul>
     </div>
     <% }) %>
+</p> -->
+
+<p>
+  <% foundFields.forEach(field=> { %>
+    <a class="btn my-2 fff custom-field-btn" href="/<%= _.lowerCase(field.fieldTitle) %>"
+      style="background-color:<%= field.fieldColor %>; border-color:<%= field.fieldColor %>;">
+      <%= field.fieldTitle %>
+    </a>
+  <% }) %>
 </p>
