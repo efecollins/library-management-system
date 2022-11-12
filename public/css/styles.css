@@ -35,7 +35,15 @@
 
 .custom-field-btn:hover {
     color: #fff;
-    transform: scale(1.15);
+    transform: scale(1.13);
+}
+
+.fff {
+    color: #fff;
+}
+
+.fff:hover {
+    color: #fff;
 }
 
 .add-book-form {
