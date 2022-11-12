@@ -15,7 +15,7 @@ app.use(express.static('public'));
 //     process.exit();
 // })
 
-mongoose.connect("mongodb+srv://efecollins-admin:admin-efecollins-4311404114@cluster0.unuhgl6.mongodb.net/libraryDB", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const bookSchema = {
     bookImage: String,
